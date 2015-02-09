@@ -10,6 +10,6 @@ import Foundation
 
 class KTOAuthClient {
 
-  var delegate: KTOAuthClientProtocol?
+  var delegate: KTOAuthClientDelegate?
 
 }

@@ -1,5 +1,5 @@
 //
-//  KTOAuthClientProtocol.swift
+//  KTOAuthClientDelegate.swift
 //  KTOAuth
 //
 //  Created by Kevin Tuhumury on 08/02/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol KTOAuthClientProtocol {
+protocol KTOAuthClientDelegate {
 
   func didReceiveAccessToken(json: AnyObject?) -> Void
 
