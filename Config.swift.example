@@ -1,0 +1,20 @@
+//
+//  Config.swift.example
+//  KTOAuth
+//
+//  Created by Kevin Tuhumury on 10/02/15.
+//  Copyright (c) 2015 Kevin Tuhumury. All rights reserved.
+//
+
+import Foundation
+
+struct Config {
+  struct OAuth {
+    static let BaseURL      = "https://example.com"
+    static let AuthorizeURL = BaseURL + "/oauth/authorize"
+    static let TokenURL     = BaseURL + "/oauth/token"
+    static let RedirectURI  = "app://oauth/callback"
+    static let ClientID     = "CLIENT_ID"
+    static let ClientSecret = "CLIENT_SECRET"
+  }
+}
