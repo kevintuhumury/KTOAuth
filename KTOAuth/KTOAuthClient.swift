@@ -30,6 +30,14 @@ class KTOAuthClient {
     requestForgeryState = encodedRequestForgeryState()
   }
 
+  func authorizeUrl() -> String {
+    return authorizeURL
+      + "?response_type=code"
+      + "&state=" + requestForgeryState!
+      + "&client_id=" + clientId
+      + "&redirect_uri=" + redirectURI.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+  }
+
   private func encodedRequestForgeryState() -> String {
     return (NSUUID().UUIDString).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.base64EncodedStringWithOptions(nil)
   }
