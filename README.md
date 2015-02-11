@@ -4,7 +4,8 @@ KTOAuth is a Swift library which let's the user authenticate against a webservic
 
 ## Dependencies
 
-* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - the better way to deal with JSON data in Swift.
+* [Alamofire](https://github.com/Alamofire/Alamofire) - Elegant HTTP Networking in Swift.
+* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - The better way to deal with JSON data in Swift.
 
 ## Copyright
 

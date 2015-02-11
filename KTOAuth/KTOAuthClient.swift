@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 Kevin Tuhumury. All rights reserved.
 //
 
-import Foundation
+import Alamofire
+import SwiftyJSON
 
 class KTOAuthClient {
 
@@ -28,6 +29,16 @@ class KTOAuthClient {
     self.tokenURL     = tokenURL
 
     requestForgeryState = encodedRequestForgeryState()
+  }
+
+  func retrieveAccessTokenWith(authorizationCode: String) -> Void {
+    Alamofire.request(.POST, tokenUrlFor(authorizationCode), parameters: nil, encoding: Alamofire.ParameterEncoding.URL).responseJSON { (_, _, data, error) -> Void in
+      if let error = error {
+        self.delegate?.didReceiveAccessTokenError(error)
+      } else {
+        self.delegate?.didReceiveAccessToken(JSON(data!))
+      }
+    }
   }
 
   func authorizeUrl() -> String {
