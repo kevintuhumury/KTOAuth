@@ -12,4 +12,8 @@ class KTOAuthClient {
 
   var delegate: KTOAuthClientDelegate?
 
+  private func encodedRequestForgeryState() -> String {
+    return (NSUUID().UUIDString).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.base64EncodedStringWithOptions(nil)
+  }
+
 }
