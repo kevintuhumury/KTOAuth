@@ -12,5 +12,7 @@ import SwiftyJSON
 protocol KTOAuthClientDelegate {
 
   func didReceiveAccessToken(json: JSON) -> Void
+  func didReceiveAccessTokenError(error: NSError) -> Void
+  func didReceiveAuthorizationCodeError(error: NSError) -> Void
 
 }
