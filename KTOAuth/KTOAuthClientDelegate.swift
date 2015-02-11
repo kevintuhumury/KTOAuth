@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol KTOAuthClientDelegate {
 
-  func didReceiveAccessToken(json: AnyObject?) -> Void
+  func didReceiveAccessToken(json: JSON) -> Void
 
 }
