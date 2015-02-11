@@ -42,4 +42,9 @@ class KTOAuthClient {
     return (NSUUID().UUIDString).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.base64EncodedStringWithOptions(nil)
   }
 
+  private func getQueryStringParameter(url: String, param: String) -> String? {
+    let url = NSURLComponents(string: url)!
+    return (url.queryItems? as [NSURLQueryItem]).filter { (item) in item.name == param }.first?.value
+  }
+
 }
