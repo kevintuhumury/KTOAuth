@@ -38,6 +38,15 @@ class KTOAuthClient {
       + "&redirect_uri=" + redirectURI.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
   }
 
+  private func tokenUrlFor(authorizationCode: String) -> String {
+    return tokenURL
+      + "?grant_type=authorization_code"
+      + "&client_id=" + clientId
+      + "&client_secret=" + clientSecret
+      + "&redirect_uri=" + redirectURI.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+      + "&code=" + authorizationCode
+  }
+
   private func encodedRequestForgeryState() -> String {
     return (NSUUID().UUIDString).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.base64EncodedStringWithOptions(nil)
   }
