@@ -21,7 +21,6 @@ class KTOAuthClient {
 
   var requestForgeryState: String?
   var isRetrievingAuthenticationCode = false
-  var errorDomain = "nl.kevintuhumury.ktoauthclient"
 
   init(clientId: String, clientSecret: String, redirectURI: String, authorizeURL: String, tokenURL: String) {
     self.clientId     = clientId
@@ -38,7 +37,7 @@ class KTOAuthClient {
 
     if isRetrievingAuthenticationCode == true {
       if url.rangeOfString("error").location != NSNotFound {
-        let error = NSError(domain: errorDomain, code: 0, userInfo: nil)
+        let error = NSError(domain: "nl.kevintuhumury.ktoauthclient", code: 0, userInfo: nil)
         delegate?.didReceiveAuthorizationCodeError(error)
       } else {
         if let state = getQueryStringParameter(url, param: "state") {
