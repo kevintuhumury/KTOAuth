@@ -4,13 +4,17 @@ KTOAuth is a Swift library which let's the user authenticate against a webservic
 
 ## Installation
 
-### Cocoapods
+#### Cocoapods
 
 Soon, really soon.
 
-### In the meantime
+#### In the meantime
 
 Add the `KTOAuth` folder manually to your project.
+
+### Config.swift
+
+In case you want to use the config rename `Config.swift.example` to `Config.swift`, adjust the settings and add it to your project as well.
 
 ## Usage
 
