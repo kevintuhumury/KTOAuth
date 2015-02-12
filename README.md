@@ -2,6 +2,16 @@
 
 KTOAuth is a Swift library which let's the user authenticate against a webservice using OAuth2. I'm using to authenticate through a `UIWebView` inside a `UIViewController`, but you could probably still use it in Safari as well (hint: use `openURL:` and handle the redirect in your app).
 
+## Installation
+
+### Cocoapods
+
+Soon, really soon.
+
+### In the meantime
+
+Add the `KTOAuth` folder manually to your project.
+
 ## Usage
 
 In order for you to receive an `access_token`, you'll have to instantiate a new instance of `KTOAuthClient` and set the `UIViewController` as the delegate of the client:
