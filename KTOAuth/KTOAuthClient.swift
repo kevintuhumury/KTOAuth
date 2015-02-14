@@ -62,6 +62,10 @@ class KTOAuthClient {
     }
   }
 
+  class func accessTokenHasExpired(expireDate: NSDate) -> Bool {
+    return expireDate != expireDate.laterDate(NSDate())
+  }
+
   func authorizeUrl() -> String {
     return authorizeURL
       + "?response_type=code"
