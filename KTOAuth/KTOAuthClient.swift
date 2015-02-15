@@ -62,6 +62,12 @@ class KTOAuthClient {
     }
   }
 
+  func refreshAccessToken(refreshToken: String, callback: (data: JSON) -> Void) -> Void {
+    Alamofire.request(.POST, refreshTokenUrlFor(refreshToken), parameters: nil, encoding: Alamofire.ParameterEncoding.URL).responseJSON { (_, _, data, error) -> Void in
+      callback(data: JSON(data!))
+    }
+  }
+
   class func accessTokenHasExpired(expireDate: NSDate) -> Bool {
     return expireDate != expireDate.laterDate(NSDate())
   }
