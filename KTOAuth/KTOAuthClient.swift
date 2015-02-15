@@ -83,6 +83,15 @@ class KTOAuthClient {
       + "&code=" + authorizationCode
   }
 
+  private func refreshTokenUrlFor(refreshToken: String) -> String {
+    return tokenURL
+      + "?grant_type=refresh_token"
+      + "&client_id=" + clientId
+      + "&client_secret=" + clientSecret
+      + "&redirect_uri=" + redirectURI.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+      + "&refresh_token=" + refreshToken
+  }
+
   private func encodedRequestForgeryState() -> String {
     return (NSUUID().UUIDString).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.base64EncodedStringWithOptions(nil)
   }
