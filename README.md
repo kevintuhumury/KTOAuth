@@ -61,6 +61,19 @@ extension WebViewController: KTOAuthClientDelegate {
 }
 ```
 
+### Refresh your token
+
+Once the access token has expired, you'll have to refresh your token. You can use the class method `accessTokenHasExpired:` to check whether that is really the case and if so, call `refreshAccessToken:callback:`:
+
+```swift
+client.refreshAccessToken(refreshToken) { (data: JSON) in
+  println(data)
+}
+```
+
+You'll have to use the refresh token you received when you first got the access token. You will also need the expiration date. So, it's probably a good idea to save all three (access token, refresh token and expiration date) once you've received them.
+
+
 ## Dependencies
 
 * [Alamofire](https://github.com/Alamofire/Alamofire) - Elegant HTTP Networking in Swift.
