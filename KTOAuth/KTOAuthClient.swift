@@ -52,7 +52,7 @@ class KTOAuthClient {
     return true
   }
 
-  func retrieveAccessTokenWith(authorizationCode: String) -> Void {
+  func retrieveAccessTokenWith(authorizationCode: String) {
     Alamofire.request(.POST, tokenUrlFor(authorizationCode), parameters: nil, encoding: Alamofire.ParameterEncoding.URL).responseJSON { (_, _, data, error) -> Void in
       if let error = error {
         self.delegate?.didReceiveAccessTokenError(error)
@@ -62,7 +62,7 @@ class KTOAuthClient {
     }
   }
 
-  func refreshAccessToken(refreshToken: String, callback: (data: JSON) -> Void) -> Void {
+  func refreshAccessToken(refreshToken: String, callback: (data: JSON) -> Void) {
     Alamofire.request(.POST, refreshTokenUrlFor(refreshToken), parameters: nil, encoding: Alamofire.ParameterEncoding.URL).responseJSON { (_, _, data, error) -> Void in
       callback(data: JSON(data!))
     }

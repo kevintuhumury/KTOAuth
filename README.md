@@ -51,11 +51,11 @@ extension WebViewController: KTOAuthClientDelegate {
   	println(json)
   }
 
-  func didReceiveAccessTokenError(error: NSError) -> Void {
+  func didReceiveAccessTokenError(error: NSError) {
     println(error)
   }
 
-  func didReceiveAuthorizationCodeError(error: NSError) -> Void {
+  func didReceiveAuthorizationCodeError(error: NSError) {
     println(error)
   }
 }
